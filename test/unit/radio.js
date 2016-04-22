@@ -130,5 +130,4 @@ describe('MaterialRadio', function () {
     });
 
   });
-
 });

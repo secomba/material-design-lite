@@ -31,12 +31,12 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialButton = MaterialButton;
+  window['MaterialButton'] = MaterialButton;
 
   /**
    * Store constants in one place so they can be updated easily.
    *
-   * @enum {String | Number}
+   * @enum {string | number}
    * @private
    */
   MaterialButton.prototype.Constant_ = {
@@ -48,7 +48,7 @@
    * JavaScript. This allows us to simply change it in one place should we
    * decide to modify at a later date.
    *
-   * @enum {String}
+   * @enum {string}
    * @private
    */
   MaterialButton.prototype.CssClasses_ = {
@@ -79,6 +79,7 @@
   MaterialButton.prototype.disable = function() {
     this.element_.disabled = true;
   };
+  MaterialButton.prototype['disable'] = MaterialButton.prototype.disable;
 
   /**
    * Enable button.
@@ -88,6 +89,7 @@
   MaterialButton.prototype.enable = function() {
     this.element_.disabled = false;
   };
+  MaterialButton.prototype['enable'] = MaterialButton.prototype.enable;
 
   /**
    * Initialize element.
@@ -108,19 +110,6 @@
       this.element_.addEventListener('mouseup', this.boundButtonBlurHandler);
       this.element_.addEventListener('mouseleave', this.boundButtonBlurHandler);
     }
-  };
-
-  /**
-   * Downgrade the element.
-   *
-   * @private
-   */
-  MaterialButton.prototype.mdlDowngrade_ = function() {
-    if (this.rippleElement_) {
-      this.rippleElement_.removeEventListener('mouseup', this.boundRippleBlurHandler);
-    }
-    this.element_.removeEventListener('mouseup', this.boundButtonBlurHandler);
-    this.element_.removeEventListener('mouseleave', this.boundButtonBlurHandler);
   };
 
   // The component registers itself. It can assume componentHandler is available

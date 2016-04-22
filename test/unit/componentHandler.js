@@ -35,6 +35,25 @@ function createNestedElementsForComponentHandlerTest() {
   return container;
 }
 
+function createCheckbox(){
+  var label = document.createElement('label');
+  label.className = 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect';
+  label.htmlFor = 'checkbox1';
+
+  var input = document.createElement('input');
+  input.setAttribute('type','checkbox');
+  input.className = 'mdl-checkbox__input';
+  input.id = 'checkbox1';
+  label.appendChild(input);
+
+  var span = document.createElement('span');
+  span.className = 'mdl-checkbox__label';
+  span.innerHTML = 'checkbox';
+  label.appendChild(span);
+
+  return label;
+}
+
 describe('componentHandler', function() {
 
   it('should be globally available', function() {
@@ -124,6 +143,15 @@ describe('componentHandler', function() {
     expect($(el)).to.have.data('upgraded', ',MaterialButtonPostfix,MaterialButton');
   });
 
+  it('should upgrade child elements created by parent upgrade', function () {
+    var checkbox = createCheckbox();
+
+    componentHandler.upgradeElements(checkbox);
+
+    var child = checkbox.lastChild;
+    expect($(child)).to.have.data('upgraded', ',MaterialRipple');
+  });
+
   it('should upgrade all elements and their children within an HTMLCollection', function() {
     var container = createNestedElementsForComponentHandlerTest();
     var buttons = document.querySelectorAll('.mdl-js-button');
@@ -151,4 +179,12 @@ describe('componentHandler', function() {
     }
   });
 
+  it('should downgrade multiple components at once', function() {
+    var button = document.createElement('button');
+    button.className = 'mdl-button mdl-js-button mdl-js-ripple-effect';
+    componentHandler.upgradeElement(button);
+    expect(button.dataset.upgraded).to.equal(',MaterialButton,MaterialRipple');
+    componentHandler.downgradeElements(button);
+    expect(button.dataset.upgraded).to.equal('');
+  });
 });

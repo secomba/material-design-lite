@@ -15,7 +15,7 @@ include_prefix: ../
         <li><a href="#progressive-enhancement">Does MDL support progressive enhancement?</a></li>
         <li><a href="#browser-support">Which browsers does MDL support?</a></li>
         <li><a href="#polymer">Does MDL play nicely with Polymer?</a></li>
-        <li><a href="#bootstrap">Is MDL comparable to Twitter Bootstrap?</a></li>
+        <li><a href="#bootstrap">Is MDL comparable to Bootstrap?</a></li>
         <li><a href="#existing-implementations">How does it compare to existing Material CSS implementations?</a></li>
         <li><a href="#options-available">Should I use the minified, CDN or Sass versions of MDL?</a></li>
         <li><a href="#official-cdn">What service does the official CDN use?</a></li>
@@ -75,7 +75,7 @@ The polyfills that we’re currently using for the MDL site to improve support i
 
 ```html
 <!--[if IE]>
-<script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.7/es5-shim.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.2.0/es5-shim.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
 <![endif]-->
@@ -105,7 +105,7 @@ The <a href="https://elements.polymer-project.org/browse?package=paper-elements"
 
 That said, MDL can be used alongside the Polymer element counterparts. Polymer uses the power of Web Components to encapsulate the designs used for those components. MDL does not affect the styling within custom components.
 
-<h2 id="bootstrap">Is MDL comparable to Twitter Bootstrap?</h2>
+<h2 id="bootstrap">Is MDL comparable to Bootstrap?</h2>
 
 *If we're using it instead of Bootstrap, can we expect the same level of component styling?*
 
@@ -157,7 +157,7 @@ and is being used by many other teams on upcoming projects, including Google Sho
 
 <h2 id="mdl-showcase">Is there a showcase available of sites using MDL?</h2>
 
-It's early days, but our [wiki](https://github.com/google/material-design-lite/wiki/) includes a page listing [sites using MDL in production](https://github.com/google/material-design-lite/wiki/Sites-using-Material-Design-Lite).
+See the <a href="/showcase/">Showcase</a> for an early list of Google sites using MDL in production. 
 
 To request your site be added, please file a [new issue](https://github.com/Google/material-design-lite/issues/new?title=Site%20Showcase%20Request&body=Please%20include:%0A*%20Description%0A*%20Primary%20Link%0A*%20Screenshot) on our GitHub issue tracker. The issue should include a link, a description of the site and a suggested screenshot.
 
